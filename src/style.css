@@ -13,9 +13,8 @@ p {
     font-size: 48px;
 }
 
-.main-temp {
+.temp-cntr {
     font-size: 72px;
-    padding-bottom: 15px;
 }
 
 .weather-specifics {
@@ -36,10 +35,6 @@ p {
     text-align: center;
 }
 
-.icon-ctnr {
-    font-size: 82px;
-    color: rgb(255, 238, 0);
-}
 
 .col {
     font-weight: 600;   
@@ -58,12 +53,6 @@ p {
 .degree-ctnr {
     font-size: 16px;
     opacity: 0.7;
-}
-
-#units {
-    position: relative;
-    font-size: 16px;
-    
 }
 
 #location-btn {
