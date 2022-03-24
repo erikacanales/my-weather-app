@@ -71,8 +71,10 @@ function updateCity(response){
     let temperature = document.querySelector(".temp-cntr");
     let roundTemp = Math.round(response.data.main.temp);
     temperature.innerHTML = ` ${roundTemp}°`
-    
-    console.log(response);
+
+    let icon = document.querySelector("#image-icon");
+    icon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    icon.setAttribute("alt", response.data.weather[0].description);
 
 }
 
