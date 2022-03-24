@@ -1,0 +1,65 @@
+body {
+    letter-spacing: 2px;
+    background: radial-gradient(circle at 10% 20%, rgba(216, 241, 230, 0.46) 0.1%, rgba(233, 226, 226, 0.28) 90.1%);
+}
+
+p {
+    opacity: 0.7;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+.main-location {
+    font-size: 48px;
+}
+
+.main-temp {
+    font-size: 72px;
+    padding-bottom: 15px;
+}
+
+.weather-specifics {
+    padding-bottom: 15px;
+}
+
+.main-container {
+    margin: 12%;
+    border: 1px solid white;
+    padding: 50px;
+    border-radius: 45px;
+    background-color: white;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.weather-container {
+    text-align: center;
+}
+
+.icon-ctnr {
+    padding: 15px;
+    font-size: 82px;
+    color: rgb(255, 238, 0);
+}
+
+.col {
+    font-weight: 600;   
+    text-align: center;
+}
+
+.search-ctnr {
+    display: block;
+    margin: 0 auto;
+}
+
+.srchbar {
+    max-width: 25%;
+}
+
+.degree-ctnr {
+    font-size: 16px;
+    opacity: 0.7;
+}
+
+#location-btn {
+    margin-left: 5px;
+}
