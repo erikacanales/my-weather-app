@@ -51,16 +51,20 @@ p {
     opacity: 0.7;
 }
 
+.clear-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .clear-wrapper img {
     height: 150px;
     width: 150px;
 }
 
-.clear-wrapper .temp-cntr {
+.temp-cntr {
     font-size: 72px;
-    margin: 0 auto;
-    align-content: center;
-    justify-content: center;
+    justify-self: center;
+    align-self: center;
 }
 
 #location-btn {
