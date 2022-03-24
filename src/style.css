@@ -82,6 +82,14 @@ p {
     text-decoration: none;
 }
 
+.code-by {
+    text-align: center;
+}
+
+.code-by-link {
+    text-decoration: none;
+}
+
 #location-btn {
     margin-left: 5px;
 }
