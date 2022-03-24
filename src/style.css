@@ -13,10 +13,6 @@ p {
     font-size: 48px;
 }
 
-.temp-cntr {
-    font-size: 72px;
-}
-
 .weather-specifics {
     padding-bottom: 15px;
 }
@@ -58,6 +54,13 @@ p {
 .clear-wrapper img {
     height: 150px;
     width: 150px;
+}
+
+.clear-wrapper .temp-cntr {
+    font-size: 72px;
+    margin: 0 auto;
+    align-content: center;
+    justify-content: center;
 }
 
 #location-btn {
