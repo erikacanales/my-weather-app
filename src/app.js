@@ -31,9 +31,11 @@ function getCity(response) {
 
     let temperature = document.querySelector(".temp-cntr");
     let roundTemp = Math.round(response.data.main.temp);
-    temperature.innerHTML = ` ${roundTemp}°`
+    temperature.innerHTML = ` ${roundTemp}°`;
+
+    let icon = document.querySelector("#image-icon");
+    icon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     
-    console.log(response);
 }
 
 function search(event) {
