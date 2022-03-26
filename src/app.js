@@ -38,16 +38,21 @@ function getCity(response) {
     icon.setAttribute("alt", response.data.weather[0].description);
 }
 
-function search(event) {
-    event.preventDefault();
-    let city = document.querySelector("#search-text-input");
+function search(city) {
     let apiKey = "ccf19c51fd8853a7a4ab6eed24c916ed"
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
     axios.get(apiUrl).then(getCity);
 }
+search("New York");
 
-form.addEventListener("submit", search);
+function handleSubmit(event) {
+    event.preventDefault();
+    let cityInputElement = document.querySelector("#search-text-input");
+    search(cityInputElement.value);
+}   
+
+form.addEventListener("submit", handleSubmit);
 
 //Search Engine API
 //let city = document.querySelector("#search-text-input");
