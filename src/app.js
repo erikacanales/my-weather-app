@@ -116,6 +116,13 @@ function showCelsius(event){
     temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
+//Forecast Section
+
+function displayForecast(){
+    let forecastElement = document.querySelector("#forecast")
+    forecastElement.innerHTML = `Forecast`
+}
+
 //Global Var
 let celsiusTemperature = null;
 
@@ -126,3 +133,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsius);
 
 search("New York");
+displayForecast();
