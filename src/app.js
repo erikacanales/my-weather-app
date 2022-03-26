@@ -54,10 +54,6 @@ function handleSubmit(event) {
 
 form.addEventListener("submit", handleSubmit);
 
-//Search Engine API
-//let city = document.querySelector("#search-text-input");
-
-
 
 //Button Bonus
 function updateCity(response){
@@ -96,3 +92,5 @@ function getCurrentPosition() {
 
 let button = document.querySelector("#location-btn");
 button.addEventListener("click", getCurrentPosition);
+
+//Temp Converter Section

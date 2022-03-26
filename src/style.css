@@ -90,6 +90,12 @@ p {
     text-decoration: none;
 }
 
+.clear-wrapper .active {
+    color: black;
+    text-decoration: none;
+    cursor: default;
+}
+
 #location-btn {
     margin-left: 5px;
 }
