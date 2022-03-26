@@ -98,10 +98,22 @@ button.addEventListener("click", getCurrentPosition);
 //Temp Converter Section
 function showFahrenheit(event){
     event.preventDefault();
-    let fahrenheitTemperature = (celsiusTemperature * 1.8) + 32;
     let temperatureElement = document.querySelector("#temperature");
+
+    celsiusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
+    let fahrenheitTemperature = (celsiusTemperature * 1.8) + 32;
     temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 
+}
+
+function showCelsius(event){
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperature");
+
+    fahrenheitLink.classList.remove("active");
+    celsiusLink.classList.add("active");
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
 //Global Var
@@ -109,5 +121,8 @@ let celsiusTemperature = null;
 
 let fahrenheitLink = document.querySelector("#fah-link");
 fahrenheitLink.addEventListener("click", showFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsius);
 
 search("New York");
