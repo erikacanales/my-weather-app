@@ -17,6 +17,8 @@ dateP.innerHTML = `${day} ${hour}:${minute}`;
 let form = document.querySelector("#search-form");
 
 function getCity(response) {
+    celsiusTemperature = response.data.main.temp;
+
     let currentLocation = document.querySelector(".main-location");
     currentLocation.innerHTML = `${response.data.name}`;
 
@@ -30,7 +32,7 @@ function getCity(response) {
     description.innerHTML = `${response.data.weather[0].description} `
 
     let temperature = document.querySelector(".temp-cntr");
-    let roundTemp = Math.round(response.data.main.temp);
+    let roundTemp = Math.round(celsiusTemperature);
     temperature.innerHTML = ` ${roundTemp}°`;
 
     let icon = document.querySelector("#image-icon");
@@ -44,7 +46,6 @@ function search(city) {
 
     axios.get(apiUrl).then(getCity);
 }
-search("New York");
 
 function handleSubmit(event) {
     event.preventDefault();
@@ -54,9 +55,10 @@ function handleSubmit(event) {
 
 form.addEventListener("submit", handleSubmit);
 
-
 //Button Bonus
 function updateCity(response){
+    celsiusTemperature = response.data.main.temp;
+
     let currentLocation = document.querySelector(".main-location");
     currentLocation.innerHTML = `${response.data.name}`;
 
@@ -70,7 +72,7 @@ function updateCity(response){
     description.innerHTML = `${response.data.weather[0].description} `
 
     let temperature = document.querySelector(".temp-cntr");
-    let roundTemp = Math.round(response.data.main.temp);
+    let roundTemp = Math.round(celsiusTemperature);
     temperature.innerHTML = ` ${roundTemp}°`
 
     let icon = document.querySelector("#image-icon");
@@ -96,11 +98,16 @@ button.addEventListener("click", getCurrentPosition);
 //Temp Converter Section
 function showFahrenheit(event){
     event.preventDefault();
-    let fahrenheitTemperature = (14 * 1.8) + 32;
+    let fahrenheitTemperature = (celsiusTemperature * 1.8) + 32;
     let temperatureElement = document.querySelector("#temperature");
     temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 
 }
 
+//Global Var
+let celsiusTemperature = null;
+
 let fahrenheitLink = document.querySelector("#fah-link");
 fahrenheitLink.addEventListener("click", showFahrenheit);
+
+search("New York");
