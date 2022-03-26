@@ -94,4 +94,13 @@ let button = document.querySelector("#location-btn");
 button.addEventListener("click", getCurrentPosition);
 
 //Temp Converter Section
+function showFahrenheit(event){
+    event.preventDefault();
+    let fahrenheitTemperature = (14 * 1.8) + 32;
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+
+}
+
 let fahrenheitLink = document.querySelector("#fah-link");
+fahrenheitLink.addEventListener("click", showFahrenheit);
