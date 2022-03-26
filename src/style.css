@@ -90,10 +90,33 @@ p {
     text-decoration: none;
 }
 
+.weather-forecast-temperature {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.weather-temperature-weather-max {
+    font-weight: 500;
+}
+
+.weather-temperature-weather-min {
+    opacity: 0.8;
+}
+
+.weather-forecase-date {
+    font-weight: 500;
+}
+
 .clear-wrapper .active {
     color: black;
     text-decoration: none;
     cursor: default;
+}
+
+.row .forecast-icon {
+    width: 60px;
+    margin: 0 auto;
+    display: block;
 }
 
 #location-btn {
