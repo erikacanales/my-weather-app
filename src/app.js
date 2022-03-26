@@ -94,3 +94,4 @@ let button = document.querySelector("#location-btn");
 button.addEventListener("click", getCurrentPosition);
 
 //Temp Converter Section
+let fahrenheitLink = document.querySelector("#fah-link");
