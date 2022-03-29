@@ -13,6 +13,25 @@ let day = days[now.getDay()];
 
 dateP.innerHTML = `${day} ${hour}:${minute}`;
 
+function formatDay(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+
+    return days[day];
+}
+
+
+
+//Forecast function
+function getForecast(coordinates) {
+    let apiKey = "ccf19c51fd8853a7a4ab6eed24c916ed"
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`
+    console.log(apiUrl);
+    axios.get(apiUrl).then(displayForecast);
+}
+
+
 //Search City Section
 let form = document.querySelector("#search-form");
 
@@ -38,6 +57,8 @@ function getCity(response) {
     let icon = document.querySelector("#image-icon");
     icon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     icon.setAttribute("alt", response.data.weather[0].description);
+
+    getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -79,6 +100,7 @@ function updateCity(response){
     icon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     icon.setAttribute("alt", response.data.weather[0].description);
 
+    getForecast(response.data.coord);
 }
 
 function showPosition(position) {
@@ -118,19 +140,21 @@ function showCelsius(event){
 
 //Forecast Section
 
-function displayForecast(){
+function displayForecast(response){
+    let forecast = response.data.daily;
+
     let forecastElement = document.querySelector("#forecast")
+    
     let forecastHTML = `<div class="row">`;
     
-    let days = ["Tues", "Wed", "Thur", "Fri", "Sat",];
-    days.forEach(function(day) {
+    forecast.forEach(function(forecastDay) {
         forecastHTML = forecastHTML + `
                 <div class="col weather-forecast-date col-one" id="forecast">
-                    ${day}
-                    <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" width="25px" class="forecast-icon">
+                    ${formatDay(forecastDay.dt)}
+                    <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="25px" class="forecast-icon">
                     <div class="weather-forecast-temperature">
-                        <span class="weather-temperature-weather-max">18° </span>
-                        <span class="weather-temperature-weather-min">14°</span>
+                        <span class="weather-temperature-weather-max">${Math.round(forecastDay.temp.max)}° </span>
+                        <span class="weather-temperature-weather-min">${Math.round(forecastDay.temp.min)}°</span>
                     </div>
                 </div>`;
     });
@@ -149,4 +173,3 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsius);
 
 search("New York");
-displayForecast();
