@@ -147,7 +147,8 @@ function displayForecast(response){
     
     let forecastHTML = `<div class="row">`;
     
-    forecast.forEach(function(forecastDay) {
+    forecast.forEach(function(forecastDay, index) {
+        if (index < 6){
         forecastHTML = forecastHTML + `
                 <div class="col weather-forecast-date col-one" id="forecast">
                     ${formatDay(forecastDay.dt)}
@@ -157,6 +158,7 @@ function displayForecast(response){
                         <span class="weather-temperature-weather-min">${Math.round(forecastDay.temp.min)}°</span>
                     </div>
                 </div>`;
+        } 
     });
 
     forecastHTML = forecastHTML + `</div>`
